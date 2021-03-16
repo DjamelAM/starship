@@ -9,8 +9,6 @@ import { data } from './data3';
 
 
 const queryClient = new QueryClient();
-//const info = useQuery('todos', fetchAsync('https://swapi.dev/api/starships/'));
-
 
 const StarshipContainer = () => {
     // 🥑 Query data with fetchAsync
