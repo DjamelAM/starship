@@ -1,65 +1,32 @@
-import React from 'react';
-import { SafeAreaView, SafeAreaViewBase, ScrollView, Text, View } from 'react-native';
-import { NetworkProvider } from 'react-native-offline';
-import AppLayout from './AppLayout';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import fetchAsync from './lib/fetchAsync';
-import { StarshipCard } from './components/StarshipCard';
-import { data } from './data3';
-import { Button } from 'react-native-paper';
-import { StarshipModal } from './components/StarshipModal';
+import React from "react";
+import { SafeAreaView, View } from "react-native";
+import { NetworkProvider } from "react-native-offline";
+import AppLayout from "./AppLayout";
+import { QueryClient, QueryClientProvider } from "react-query";
+import StarshipList from "./src/components/StarshipList";
+//import { StorybookUIRoot } from "./storybook";
+import { NavigationContainer } from "@react-navigation/native";
+import Navigator from "./src/navigation/Navigator";
+import { Caption, Headline } from "react-native-paper";
 
-
+//const SHOW_STORYBOOK = true;
 const queryClient = new QueryClient();
 
-const StarshipContainer = () => {
-    // 🥑 Query data with fetchAsync
-    const { status, error, data } = useQuery('starships', () =>
-        fetchAsync(`https://swapi.dev/api/starships/`)
-    );
-    return (
-        <Text>{status}</Text>
-    )
-}
-
-function Todos(): JSX.Element {
-  return <>{
-      data.results.map(item => <StarshipCard name={item.name} model={item.model} crew={item.crew} />
-      )
-  }</>
-}
-
 const App = () => {
- const [visible, setVisible] = React.useState(false);
-    const hideModal = () => setVisible(false);
-
-    return (
-        <QueryClientProvider client={queryClient}>
-            <SafeAreaView>
-                <NetworkProvider>
-                    <AppLayout title="Starships">
-                        {/*  <Offline /> */}
-                        <StarshipContainer />
-                        <ScrollView>
-                            {data.results.map(item => <StarshipCard name={item.name} model={item.model} crew={item.crew} />
-
-                            )
-                            
-                            }
-                        {/* {data.results.map((item: StarshipProp) => {
-                           return ( <StarshipCard name={item.name} model={item.model} crew={item.crew} />);
-
-                        })} */}
-                            
-                        
-                        </ScrollView>
-                    </AppLayout>
-                </NetworkProvider>
-            </SafeAreaView>
-        </QueryClientProvider>
-
-    );
-
+  return (
+    <QueryClientProvider client={queryClient}>
+      {/*  <NetworkProvider> */}
+      {/*  <AppLayout title="Starships"> */}
+      {/*  <Offline /> */}
+      {/* <StarshipList /> */}
+      <NavigationContainer>
+        <Navigator />
+      </NavigationContainer>
+      {/*  </AppLayout> */}
+      {/*  </NetworkProvider> */}
+    </QueryClientProvider>
+  );
 };
 
+//const UI = SHOW_STORYBOOK && __DEV__ ? StorybookUIRoot : App;
 export default App;
