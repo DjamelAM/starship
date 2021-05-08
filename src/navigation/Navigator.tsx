@@ -6,12 +6,19 @@ import * as React from "react";
 import TermsScreen from "../screens/TermsScreen";
 import LoginScreen from "../screens/LoginScreen";
 import StarhipListScreen from "../screens/StarshipListScreen";
+import StarshipDetailsScreen from "../screens/StarshipDetailsScreen";
+import PilotDetailsScreen from "../screens/PilotDetailsScreen";
+import CustomNavigationBar from "./CustomNavigationBar";
 
 const Stack = createStackNavigator();
 
 function Navigator() {
   return (
-    <Stack.Navigator initialRouteName={AppRoute.LOGIN_SCREEN}>
+    <Stack.Navigator
+      initialRouteName={AppRoute.LOGIN_SCREEN}
+      headerMode="none"
+      /*  screenOptions={{ header: (props) => <CustomNavigationBar {...props} /> }} */
+    >
       <Stack.Screen
         name={AppRoute.STARSHIP_LIST}
         component={StarhipListScreen}
@@ -20,6 +27,14 @@ function Navigator() {
       <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
 
       <Stack.Screen name={AppRoute.TERMS_SCREEN} component={TermsScreen} />
+      <Stack.Screen
+        name={AppRoute.STARSHIP_DETAILS}
+        component={StarshipDetailsScreen}
+      />
+      <Stack.Screen
+        name={AppRoute.PILOT_DETAILS}
+        component={PilotDetailsScreen}
+      />
     </Stack.Navigator>
   );
 }

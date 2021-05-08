@@ -4,4 +4,6 @@ export enum AppRoute {
   TIMELINE_SCREEN = "Timeline",
   STARSHIP_LIST = "StarshipList",
   PILOT_PROFILE = "Pilot",
+  STARSHIP_DETAILS = "StarshipDetails",
+  PILOT_DETAILS = "PilotDetails",
 }

@@ -2,6 +2,8 @@ import * as React from "react";
 import { Button, Card, Paragraph } from "react-native-paper";
 import { StarshipModal } from "./StarshipModal";
 import { StyleSheet } from "react-native";
+import { AppRoute } from "../navigation/AppRoute";
+import { useNavigation } from "@react-navigation/native";
 export const StarshipCard = ({
   name,
   model,
@@ -18,7 +20,7 @@ export const StarshipCard = ({
   const [visible, setVisible] = React.useState(false);
 
   const hideModal = () => setVisible(false);
-
+  const navigation = useNavigation();
   return (
     <Card
       key={id}
@@ -43,7 +45,16 @@ export const StarshipCard = ({
             setVisible(true);
           }}
         >
-          Button
+          Modal
+        </Button>
+        <Button
+          onPress={() =>
+            navigation.navigate(AppRoute.STARSHIP_DETAILS, {
+              starship: starship,
+            })
+          }
+        >
+          Go to details
         </Button>
       </Card.Content>
     </Card>
