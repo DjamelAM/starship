@@ -20,3 +20,4 @@ jobs:
           expo-cache: true
       - run: yarn
       - run: expo publish --release-channel production
+      - run: build:web
