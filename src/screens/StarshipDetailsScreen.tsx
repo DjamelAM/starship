@@ -45,7 +45,7 @@ export default function App({ navigation, route }) {
               <Text>passengers : {starship.passengers}</Text>
               <Text>length : {starship.length}</Text>
               <Text>starship_class : {starship.starship_class}</Text>
-              <Text>Pilots :</Text>
+              <Text>Pilots (click on id to check details):</Text>
               {/* it there is pilots we get their name with a fetch on each link given and push them into an array */}
 
               {starship.pilots.length !== 0 ? (
@@ -53,7 +53,9 @@ export default function App({ navigation, route }) {
                   pilot.slice(28, -1) - 1 > 9
                     ? pilots.push({ name: "???" }) // we'll go with that if the pilot is not on the first page of /people
                     : pilots.push({
-                        /*  name: data.results[pilot.slice(28, -1) - 1]["name"], */
+                        /* name: await data.results[pilot.slice(28, -1) - 1][
+                          "name"
+                        ], // not working everywhere*/
                         pilotId: pilot.slice(28, -1),
                       });
                 }),
@@ -68,7 +70,10 @@ export default function App({ navigation, route }) {
                           })
                         }
                       >
-                        <Text>{item.pilotId}</Text>
+                        <Text>
+                          {/*  name : {item.name} */}
+                          id : {item.pilotId == null ? "???" : item.pilotId}
+                        </Text>
                       </TouchableOpacity>
                     )}
                   />

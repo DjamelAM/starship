@@ -23,7 +23,7 @@ export const StarshipCard = ({
   const navigation = useNavigation();
   return (
     <Card
-      key={id}
+      key={name}
       onPress={() => {
         setVisible(false);
       }}

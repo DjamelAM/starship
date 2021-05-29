@@ -6,10 +6,6 @@ import { StarshipCard } from "../components/StarshipCard";
 import { StarshipList } from "../components";
 
 function StarhipListScreen({ navigation }) {
-  return (
-    <View>
-      <StarshipList></StarshipList>
-    </View>
-  );
+  return <StarshipList></StarshipList>;
 }
 export default StarhipListScreen;

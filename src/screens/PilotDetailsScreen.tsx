@@ -21,7 +21,8 @@ export default function App({ navigation, route }) {
     <View>
       <Appbar.Header>
         <Appbar.BackAction onPress={goBack} />
-        {status == "success" ? (
+
+        {status == "success" && pilotId != null ? (
           <Appbar.Content title={data.name} />
         ) : (
           <Appbar.Content title="???" />
@@ -29,7 +30,7 @@ export default function App({ navigation, route }) {
       </Appbar.Header>
       <View style={{ padding: 32 }}>
         <ScrollView>
-          {status == "success" ? (
+          {status == "success" && pilotId != null ? (
             <>
               <Text>Gender : {data.gender} </Text>
               <Text>height : {data.height}</Text>
@@ -38,7 +39,14 @@ export default function App({ navigation, route }) {
               {/* it there is pilots we get their name with a fetch on each link given and push them into an array */}
             </>
           ) : (
-            <Text>{status}</Text>
+            <>
+              <Text>No information on this character, try to discover it </Text>
+              <Text>Gender : ??? </Text>
+              <Text>height : ???</Text>
+              <Text>mass : ???</Text>
+
+              {/* it there is pilots we get their name with a fetch on each link given and push them into an array */}
+            </>
           )}
         </ScrollView>
       </View>

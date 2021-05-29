@@ -7,7 +7,6 @@ import StarshipList from "./src/components/StarshipList";
 //import { StorybookUIRoot } from "./storybook";
 import { NavigationContainer } from "@react-navigation/native";
 import Navigator from "./src/navigation/Navigator";
-import { Caption, Headline } from "react-native-paper";
 
 //const SHOW_STORYBOOK = true;
 const queryClient = new QueryClient();
@@ -15,15 +14,7 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      {/*  <NetworkProvider> */}
-      {/*  <AppLayout title="Starships"> */}
-      {/*  <Offline /> */}
-      {/* <StarshipList /> */}
-      <NavigationContainer>
-        <Navigator />
-      </NavigationContainer>
-      {/*  </AppLayout> */}
-      {/*  </NetworkProvider> */}
+      <Navigator />
     </QueryClientProvider>
   );
 };

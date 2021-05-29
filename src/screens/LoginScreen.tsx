@@ -4,7 +4,7 @@ import Constants from "expo-constants";
 import { TextInput, Button, Card } from "react-native-paper";
 import { AppRoute } from "../navigation/AppRoute";
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen({ navigation }: { navigation: any }) {
   const [text, setText] = React.useState("");
   const [pass, setPass] = React.useState("");
 

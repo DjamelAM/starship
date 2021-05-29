@@ -3,39 +3,44 @@ import { AppRoute } from "./AppRoute";
 
 import * as React from "react";
 
-import TermsScreen from "../screens/TermsScreen";
 import LoginScreen from "../screens/LoginScreen";
 import StarhipListScreen from "../screens/StarshipListScreen";
+
+import SplashScreen from "../screens/SplashScreen";
+import { NavigationContainer } from "@react-navigation/native";
 import StarshipDetailsScreen from "../screens/StarshipDetailsScreen";
 import PilotDetailsScreen from "../screens/PilotDetailsScreen";
-import CustomNavigationBar from "./CustomNavigationBar";
+import TermsScreen from "../screens/TermsScreen";
 
 const Stack = createStackNavigator();
 
 function Navigator() {
+  const [isAuthorized, setIsAuthorized] = React.useState(false);
+
   return (
-    <Stack.Navigator
-      initialRouteName={AppRoute.LOGIN_SCREEN}
-      headerMode="none"
-      /*  screenOptions={{ header: (props) => <CustomNavigationBar {...props} /> }} */
-    >
-      <Stack.Screen
-        name={AppRoute.STARSHIP_LIST}
-        component={StarhipListScreen}
-      />
+    <NavigationContainer>
+      <Stack.Navigator
+        headerMode="none"
+        /* decomment for customnav : screenOptions={{ header: (props) => <CustomNavigationBar {...props} /> }} */
+      >
+        <Stack.Screen
+          name={AppRoute.STARSHIP_LIST}
+          component={StarhipListScreen}
+        />
 
-      <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
+        <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
 
-      <Stack.Screen name={AppRoute.TERMS_SCREEN} component={TermsScreen} />
-      <Stack.Screen
-        name={AppRoute.STARSHIP_DETAILS}
-        component={StarshipDetailsScreen}
-      />
-      <Stack.Screen
-        name={AppRoute.PILOT_DETAILS}
-        component={PilotDetailsScreen}
-      />
-    </Stack.Navigator>
+        <Stack.Screen name={AppRoute.TERMS_SCREEN} component={TermsScreen} />
+        <Stack.Screen
+          name={AppRoute.STARSHIP_DETAILS}
+          component={StarshipDetailsScreen}
+        />
+        <Stack.Screen
+          name={AppRoute.PILOT_DETAILS}
+          component={PilotDetailsScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -51,3 +56,23 @@ export default Navigator;
 
   <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
 )} */
+
+{
+  /* <Stack.Screen
+        name={AppRoute.STARSHIP_LIST}
+        component={StarhipListScreen}
+      />
+
+      <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
+
+      <Stack.Screen name={AppRoute.TERMS_SCREEN} component={TermsScreen} />
+      <Stack.Screen
+        name={AppRoute.STARSHIP_DETAILS}
+        component={StarshipDetailsScreen}
+      />
+      <Stack.Screen
+        name={AppRoute.PILOT_DETAILS}
+        component={PilotDetailsScreen}
+      />
+ */
+}
