@@ -23,12 +23,12 @@ function Navigator() {
         headerMode="none"
         /* decomment for customnav : screenOptions={{ header: (props) => <CustomNavigationBar {...props} /> }} */
       >
+        <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
+
         <Stack.Screen
           name={AppRoute.STARSHIP_LIST}
           component={StarhipListScreen}
         />
-
-        <Stack.Screen name={AppRoute.LOGIN_SCREEN} component={LoginScreen} />
 
         <Stack.Screen name={AppRoute.TERMS_SCREEN} component={TermsScreen} />
         <Stack.Screen

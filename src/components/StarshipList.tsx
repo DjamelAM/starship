@@ -19,7 +19,7 @@ const StarshipList = (navigation) => {
   return (
     <ScrollView>
       <Appbar.Header>
-        <Appbar.BackAction onPress={goBack} />
+        {/* <Appbar.BackAction onPress={goBack} /> */}
         <Appbar.Content title="StarhipFeed" />
       </Appbar.Header>
 
